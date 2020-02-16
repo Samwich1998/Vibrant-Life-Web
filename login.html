@@ -20,18 +20,23 @@
         <li class = "right"><a class ="nav_buton" href="about.html"> About </a></li>
         <li class = "right"><a class ="nav_buton" href="index.html"> Home </a></li>
       </ul>
+    </div>
+  </header>
     <!-- Navigation Bar End -->
 
     <!-- Login Page Begins -->
+    <center>
     <h2 class = "black">Modal Login Form</h2>
-
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    </center>
 
+    <!-- Form Itself -->
+    <center>
     <div id="id01" class="modal">
       <form class="modal-content animate" action="/action_page.php" method="post">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <center> <img src = "Login_images/avatar_default.png" alt="Avatar" class="avatar" width = "200"> </center>
+          <center> <img src = "Login_images/avatar_default.jpg" alt="Avatar" class="avatar" width = "200"> </center>
         </div>
 
         <div class="container">
@@ -53,6 +58,7 @@
         </div>
       </form>
     </div>
+  </center>
 
   <!-- JavaScript -->
   <script>
