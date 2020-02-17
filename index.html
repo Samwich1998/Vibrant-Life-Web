@@ -32,9 +32,14 @@
             <center>
               <img src = "Home_Page_Images/ViLi_Logo.png" width = "300" />
               <strong> <h4 class = "black"> Reconnecting the World Back to You </h4> </strong>
-              <input class = "input_place" type = "text" placeholder = "Search | Sushi, Burgers, Laundromats, Banks, Etc." />
-              <br>
-              <input class = "input_location" type = "text" placeholder = "Location | " />
+
+              <form action="/action_page.php" autocomplete="on">
+                <label for="fname"></label>
+                  <input class = "input_place" type = "text" placeholder = "Search | Sushi, Burgers, Laundromats, Banks, Etc."
+                         get = "https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972"/>
+                <br>
+                <input class = "input_location" type = "text" placeholder = "Location | " />
+              </form>
             </center>
     </section>
     </div>

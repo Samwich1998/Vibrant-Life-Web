@@ -1,0 +1,7 @@
+
+
+Yelp API:
+d6plqzhX403PQXp4X-whvk0775siJyuXICKgpEe_5Qhmv95tvDU79UMyeeua5tsQQsQi3cIWT8laMG4bS8Y99roqHh9Bq34JyU3ZJn8pgvLrLIxR3_U9R9tda-tKXnYx
+
+Client ID:
+vBJKEiplPEkRpgoV__i2MQ
