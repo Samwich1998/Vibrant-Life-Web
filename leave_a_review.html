@@ -7,8 +7,13 @@
   <title> VILI HomePage </title>
   <link rel=stylesheet href = "css/styles.css">
   <link rel=stylesheet href = "css/review_buttons.css">
+  <!-- Adding Mavo -->
+  <link rel="stylesheet" href="https://get.mavo.io/mavo.css" />
+	<script src="https://get.mavo.io/mavo.js"></script>
 </head>
 <body>
+  <!-- Adding Mavo -->
+  <main mv-app="Backround_Demo" storage="local" mv-autosave mv-multiple>
 
   <!-- Navigation Bar Start -->
   <section>
@@ -56,30 +61,106 @@
     </center>
     <br>
     <div class = "opp_align">
-      <a class="button_style button-yellow">
-          Leave Review for <strong> Light </strong>
-      </a>
-      <a class="button_style button-orange">
-          Leave Review for <strong> Noise </strong>
-      </a>
-      <a class="button_style button-red">
-          Leave Review for <strong> Smell </strong>
-      </a>
+      <button class="button_style button-yellow" mv-action="set(Light, abs(Light-1))">
+          <span> Leave Review for <strong> Light </strong> </span>
+      </button>
+      <button class="button_style button-orange" mv-action="set(Noise, abs(Noise-1))">
+          <span> Leave Review for <strong> Noise </strong> </span>
+      </button>
+      <button class="button_style button-red" mv-action="set(Smell, abs(Smell-1))">
+          <span> Leave Review for <strong> Smell </strong> </span>
+      </button>
     </div>
     <br>
     <div class = "opp_align">
-      <a class="button_style button-purple">
-        Leave Review for <strong> Staff Accomodation</strong>
-      </a>
-      <a class="button_style button-blue">
-        Leave Review for <strong> Needs-Specific Accomodation </strong>
-      </a>
-      <a class="button_style button-green">
-        Leave Review for <strong> Mobility and Accessibility </strong>
-      </a>
+      <button class="button_style button-purple" mv-action="set(Staff, abs(Staff-1))">
+        <span> Leave Review for <strong> Staff Accomodation</strong> </span>
+      </button>
+      <button class="button_style button-blue" mv-action="set(Need_Specific, abs(Need_Specific-1))">
+        <span> Leave Review for <strong> Needs-Specific Accomodation </strong> </span>
+      </button>
+      <button class="button_style button-green" mv-action="set(Mobility, abs(Mobility-1))">
+        <span> Leave Review for <strong> Mobility and Accessibility </strong> </span>
+      </button>
     </div>
     <br> <br> <br> <br>
+    <!-- Variable Names for Buttons. Initially Set to False -->
+    <div hidden property="Light"> 0 </div>
+    <div hidden property="Noise"> 0 </div>
+    <div hidden property="Smell"> 0 </div>
+    <div hidden property="Staff"> 0 </div>
+    <div hidden property="Need_Specific"> 0 </div>
+    <div hidden property="Mobility"> 0 </div>
 
 
+    <!-- Leave Review for Store Below -->
+    <section>
+      <center>
+        <!-- Thank YOu Title -->
+        <div mv-if = "Light = 1 or Noise = 1 or Smell = 1 or Staff = 1 or Need_Specific = 1 or Mobility = 1">
+          <hr size = "20">
+          <h3> Thank You! Write a Review For a Businness Below: </h3>
+        </div>
+        <!-- Light Review -->
+        <div mv-if = "Light = 1">
+    		<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="text/plain">
+    			<label for = "Name">
+    				<strong> Name </strong>
+    			<br>
+    				<input type="text" placeholder="First" />
+    				<input type="text" placeholder="Last" />
+    			</label>
+    			<br>
+    			<br>
+    			<label for = "Email">
+    				<strong> Email </strong>
+    			<br>
+    				<input type="text" placeholder="Email" />
+    			</label>
+    			<br>
+    			<br>
+    			<label for = "Message">
+    				<strong> Please Type Message Below: </strong>
+    			<br>
+    			 <textarea  type="text" rows = "10" cols = "40" placeholder = "Enter Message :)" /> </textarea>
+    		 </label>
+    			<br>
+    			<br>
+    			<input type="submit" name="submit" value="Send" />
+          <input type="reset" name="reset" value="Clear Form" />
+    		<div>
+    			<img src = "https://www.sandraseasycooking.com/wp-content/uploads/2019/03/contact-me.jpg"
+    			     width="210" height="100" >
+    		</form>
+    	  </div>
+      </center>
+    </section>
+
+      <h2>PHP Form Validation Example</h2>
+      <p><span class="error">* required field</span></p>
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        Name: <input type="text" name="name" value="<?php echo $name;?>">
+        <span class="error">* <?php echo $nameErr;?></span>
+        <br><br>
+        E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+        <span class="error">* <?php echo $emailErr;?></span>
+        <br><br>
+        Website: <input type="text" name="website" value="<?php echo $website;?>">
+        <span class="error"><?php echo $websiteErr;?></span>
+        <br><br>
+        Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+        <br><br>
+        Gender:
+        <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
+        <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
+        <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other
+        <span class="error">* <?php echo $genderErr;?></span>
+        <br><br>
+        <input type="submit" name="submit" value="Submit">
+      </form>
+
+
+
+</main>
 </body>
 </html>
